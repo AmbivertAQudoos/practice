@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('layout/navbar') -%>
+    <h1>Home Page</h1>
+    <table class="table" >
+        <tr>
+            <th>User Name</th>
+            <th>Password</th>
+            <th>img</th> 
+            <th>Update</th>
+            <th>Delete</th> 
+        </tr>
+    <% for(let i=0;i<obj.length;i++) {%>
+        <tr>
+        <td><%=obj[i].Username %></td>
+        <td><%=obj[i].Password %></td>
+        <td><img src="/img/<%=obj[i].img%>" style="width:80px; height:80px ;" /></td>
+        <td><a href="/delete/<%=obj[i]._id%>">delete</a></td>
+        <td><a href="/data/<%=obj[i]._id%>">Update</a></td>
+
+        </tr>
+    <%}%>
+    </table>
+</body>
+</html>
